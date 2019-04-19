@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="col-md-8 m-auto">
+    <h2 class="text-center">Update Employee</h2>
+    <form [formGroup]="updateForm">
+      <div class="form-group">
+        <label for="eid">Employee ID</label>
+        <input type="text" id="eid" class="form-control" [(ngModel)]="f_data.id" formControlName="id" name="id"
+          placeholder="Employee ID" readonly>
+        <div *ngIf="f.id.invalid && (f.id.dirty || f.id.touched)" class="alert alert-danger">
+          <div *ngIf="f.id.errors.required">
+            ID is required.
+          </div>
+          <div *ngIf="f.id.errors.pattern">
+            Invalid ID.
+          </div>
+          <div *ngIf="f.id.errors.maxlength">
+            Not more than 2 chars.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Employee Name</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="f_data.emp_name" formControlName="emp_name"
+          name="emp_name" placeholder="Employee Name" [ngClass]="{ 'has-error': submitted && f.emp_name.errors }">
+        <div *ngIf="f.emp_name.invalid && (f.emp_name.dirty || f.emp_name.touched)" class="alert alert-danger">
+          <div *ngIf="f.emp_name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="f.emp_name.errors.pattern">
+            Invalid Name.
+          </div>
+          <div *ngIf="f.emp_name.errors.minlength">
+            Minimum 4 chars required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Employee Email</label>
+        <input type="text" id="email" class="form-control" [(ngModel)]="f_data.emp_email" formControlName="emp_email"
+          name="emp_email" placeholder="Employee Email">
+        <div *ngIf="f.emp_email.invalid && (f.emp_email.dirty || f.emp_email.touched)" class="alert alert-danger">
+          <div *ngIf="f.emp_email.errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="f.emp_email.errors.pattern">
+            Invalid Email.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dob">Employee DOB</label>
+        <input type="date" id="dob" [max]="minDate" class="form-control" [(ngModel)]="f_data.emp_dob"
+          formControlName="emp_dob" name="emp_dob" placeholder="Employee DOB">
+        <div *ngIf="f.emp_dob.invalid && (f.emp_dob.dirty || f.emp_dob.touched)" class="alert alert-danger">
+          <div *ngIf="f.emp_dob.errors.required">
+            DOB is required.
+          </div>
+          <div *ngIf="f.emp_dob.errors.pattern">
+            Invalid Charactors.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sal">Employee Salary</label>
+        <input type="text" id="sal" class="form-control" [(ngModel)]="f_data.emp_salary" formControlName="emp_salary"
+          name="emp_salary" placeholder="Employee Salary">
+        <div *ngIf="f.emp_salary.invalid && (f.emp_salary.dirty || f.emp_salary.touched)" class="alert alert-danger">
+          <div *ngIf="f.emp_salary.errors.required">
+            Salary is required.
+          </div>
+          <div *ngIf="f.emp_salary.errors.pattern">
+            Invalid Charactors.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age">Employee Age</label>
+        <input type="text" id="age" class="form-control" [(ngModel)]="f_data.emp_age" formControlName="emp_age"
+          name="emp_age" placeholder="Employee Age">
+        <div *ngIf="f.emp_age.invalid && (f.emp_age.dirty || f.emp_age.touched)" class="alert alert-danger">
+          <div *ngIf="f.emp_age.errors.required">
+            Age is required.
+          </div>
+          <div *ngIf="f.emp_age.errors.pattern">
+            Invalid Charactors.
+          </div>
+          <div *ngIf="f.emp_age.errors.max">
+            Age should not be more than 70.
+          </div>
+          <div *ngIf="f.emp_age.errors.min">
+            Age should not be less than 20.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="jdate">Join Date</label>
+        <input type="date" [max]="maxDate" id="jdate" class="form-control" [(ngModel)]="f_data.emp_join_date"
+          formControlName="emp_join_date" name="emp_join_date" placeholder="Employee Join Date">
+        <div *ngIf="f.emp_join_date.invalid && (f.emp_join_date.dirty || f.emp_join_date.touched)"
+          class="alert alert-danger">
+          <div *ngIf="f.emp_join_date.errors.required">
+            Join Date is required.
+          </div>
+          <div *ngIf="f.emp_join_date.errors.pattern">
+            Invalid Charactors.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exp">Employee Experience</label>
+        <select class="form-control" id="exp" [(ngModel)]="f_data.emp_experience" formControlName="emp_experience"
+          name="emp_experience">
+          <option value="0 Year">0 Year</option>
+          <option value="1 Year">1 Year</option>
+          <option value="2 Year">2 Year</option>
+          <option value="3 Year">3 Year</option>
+          <option value="4 Year">4 Year</option>
+          <option value="5 Year">5 Year</option>
+          <option value="6 Year">6 Year</option>
+        </select>
+        <div *ngIf="f.emp_experience.invalid && (f.emp_experience.dirty || f.emp_experience.touched)"
+          class="alert alert-danger">
+          <div *ngIf="f.emp_experience.errors.required">
+            Experience is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="addr">Employee Address</label>
+        <textarea class="form-control" id="addr" placeholder="Employee Address" [(ngModel)]="f_data.emp_adr"
+          formControlName="emp_adr" name="emp_adr"></textarea>
+        <div *ngIf="f.emp_adr.invalid && (f.emp_adr.dirty || f.emp_adr.touched)" class="alert alert-danger">
+          <div *ngIf="f.emp_adr.errors.required">
+            Address is required.
+          </div>
+          <div *ngIf="f.emp_adr.errors.minlength">
+            Minimum 4 chars required.
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 mt-0">
+        <button [disabled]="updateForm.invalid" (click)="updateEmp()"
+          class="btn mt-4 btn-outline-success btn-sm">Update</button>
+        <button class="btn btn-outline-warning btn-sm mt-4 ml-2" (click)="back()">Go Back</button>
+      </div>
+    </form>
+  </div>
+</div>

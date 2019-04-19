@@ -1,0 +1,25 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css";
+@import "~angular-notifier/styles";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.md-3-padd{
+    padding: 11px 53px;
+    font-weight: bold;
+  }
+  .md-3-paddE {
+    padding: 11px 29px;
+    font-weight: bold;
+}
+.md-3-paddD {
+    padding: 11px 5px;
+    font-weight: bold;
+}
+.md-3-paddS {
+    padding: 11px 77px;
+    font-weight: bold;
+}
+.md-3-paddA {
+    padding: 11px 58px;
+    font-weight: bold;
+}

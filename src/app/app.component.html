@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info mb-4">
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/emp-list">Employee List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" data-toggle="modal" data-target="#addModal">Add New Employee</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="modal" tabindex="-1" role="dialog" id="addModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title">Add Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeBtn>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-emp-form (emitData)="closeModal($event,closeBtn)"></app-emp-form>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

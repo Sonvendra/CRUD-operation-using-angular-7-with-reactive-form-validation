@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row border">
+    <div class="container bg-info">
+      <div class="row">
+        <div class="col-md-3 md-3-padd">Name</div>
+        <div class="col-md-3 md-3-paddE">Email</div>
+        <div class="col-md-1 md-3-paddD">DOB</div>
+        <div class="col-md-2 md-3-paddS">Salary</div>
+        <div class="col-md-2 md-3-paddA">Age</div>
+      </div>
+    </div>
+    <div class="col-md-12 border" *ngFor="let emp of employees, let i = index;">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="col-md-3">{{i+1}}. {{emp.emp_name}}</div>
+            <div class="col-md-3">{{emp.emp_email | lowercase}}</div>
+            <div class="col-md-2">{{emp.emp_dob | date}}</div>
+            <div class="col-md-2">{{emp.emp_salary | currency : 'INR'}}</div>
+            <div class="col-md-2">{{emp.emp_age}}Year</div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="row">
+          <div class="col-md-3">
+            <ul>
+              <li><strong>Join Date:</strong> {{emp.emp_join_date | date}}</li>
+              <li><strong>Experience:</strong> {{emp.emp_experience}}</li>
+              <li><strong>Age:</strong> {{emp.emp_age}}</li>
+              <li><strong>Address:</strong> {{emp.emp_adr}}</li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <button (click)="editEmp(emp)" class="btn btn-sm btn-outline-primary mr-2">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button (click)="deleteEmp(emp)" class="btn btn-sm btn-outline-danger">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>
